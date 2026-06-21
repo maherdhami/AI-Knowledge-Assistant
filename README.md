@@ -57,10 +57,7 @@ A Streamlit-based AI Knowledge Assistant powered by LangChain, Ollama, ChromaDB,
 AI-Knowledge-Assistant/
 │
 ├── app.py
-├── requirements.txt
 ├── README.md
-├── .env
-├── .env.example
 │
 ├── data/
 │
