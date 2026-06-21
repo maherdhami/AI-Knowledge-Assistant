@@ -331,34 +331,4 @@ This project is licensed under the MIT License.
 
 ---
 
-### Repository Name
-
-```text
-AI-Knowledge-Assistant
-```
-
-### GitHub Description
-
-```text
-A Streamlit-based AI Knowledge Assistant powered by LangChain, Ollama, ChromaDB and HuggingFace Embeddings. Upload PDFs, scrape websites and chat with your knowledge base using Retrieval-Augmented Generation (RAG).
-```
-
-### GitHub Topics
-
-```text
-ai
-llm
-rag
-langchain
-streamlit
-ollama
-chromadb
-huggingface
-vector-database
-retrieval-augmented-generation
-chatbot
-pdf-chat
-document-qa
-python
-genai
 ```
