@@ -5,6 +5,7 @@ A Streamlit-based AI Knowledge Assistant powered by LangChain, Ollama, ChromaDB 
 
 A Streamlit-based AI Knowledge Assistant powered by LangChain, Ollama, ChromaDB, and HuggingFace Embeddings. Upload PDFs, scrape websites, and chat with your knowledge base using Retrieval-Augmented Generation (RAG).
 
+live app: https://ai-knowledge-assistant-7.streamlit.app/
 ---
 
 ## 🚀 Features
