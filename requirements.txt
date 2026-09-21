@@ -10,3 +10,5 @@ python-dotenv
 torch
 torchvision
 langchain-ollama
+langchain-groq
+groq
