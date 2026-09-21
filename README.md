@@ -1,58 +1,66 @@
-# AI-Knowledge-Assistant
-A Streamlit-based AI Knowledge Assistant powered by LangChain, Ollama, ChromaDB and HuggingFace Embeddings. Upload PDFs, scrape websites and chat with your knowledge base using Retrieval-Augmented Generation (RAG).
+# 🤖 AI Knowledge Assistant
 
-# AI Knowledge Assistant 🤖
+An intelligent Retrieval-Augmented Generation (RAG) application built using **LangChain**, **Ollama**, **ChromaDB**, **HuggingFace Embeddings**, and **Streamlit**. The assistant allows users to upload PDFs, ingest website content, and chat with their own knowledge base through a conversational AI interface.
 
-A Streamlit-based AI Knowledge Assistant powered by LangChain, Ollama, ChromaDB, and HuggingFace Embeddings. Upload PDFs, scrape websites, and chat with your knowledge base using Retrieval-Augmented Generation (RAG).
+### 🌐 Live Demo
 
-live app: https://ai-knowledge-assistant-7.streamlit.app/
----
-
-## 🚀 Features
-
-- 💬 ChatGPT-like conversational interface
-- 📄 Upload and query PDF documents
-- 🌐 Ingest website content using URLs
-- 🧠 Retrieval-Augmented Generation (RAG)
-- 🔍 Semantic search with vector embeddings
-- 🗂️ ChromaDB vector database
-- 🤗 HuggingFace Embeddings
-- 🦙 Local LLM inference using Ollama
-- 📝 Conversation memory with LangChain
-- ✂️ Automatic chat history trimming
-- ⚡ Fast and lightweight Streamlit UI
+**AI Knowledge Assistant:**
+https://ai-knowledge-assistant-7.streamlit.app/
 
 ---
 
-## 🛠️ Tech Stack
+# 🚀 Features
 
-### Frontend
-- Streamlit
-
-### LLM
-- Ollama
-- Llama 3 (8B)
-
-### Framework
-- LangChain
-
-### Embeddings
-- sentence-transformers/all-MiniLM-L6-v2
-
-### Vector Database
-- ChromaDB
-
-### Document Loaders
-- PyPDFLoader
-- WebBaseLoader
-
-### Memory
-- RunnableWithMessageHistory
-- ChatMessageHistory
+* 💬 ChatGPT-style conversational interface
+* 📄 Upload and chat with PDF documents
+* 🌐 Extract and query website content using URLs
+* 🧠 Retrieval-Augmented Generation (RAG)
+* 🔍 Semantic search powered by vector embeddings
+* 🗂️ ChromaDB vector database integration
+* 🤗 HuggingFace Embeddings
+* 🦙 Local LLM inference using Ollama
+* 📝 Context-aware conversation memory
+* ✂️ Automatic chat history trimming
+* ⚡ Fast and lightweight Streamlit UI
 
 ---
 
-## 📂 Project Structure
+# 🛠️ Tech Stack
+
+## Frontend
+
+* Streamlit
+
+## AI & LLM
+
+* Ollama
+* Llama 3 (8B)
+
+## Framework
+
+* LangChain
+
+## Embeddings
+
+* sentence-transformers/all-MiniLM-L6-v2
+
+## Vector Database
+
+* ChromaDB
+
+## Document Processing
+
+* PyPDFLoader
+* WebBaseLoader
+
+## Memory Management
+
+* RunnableWithMessageHistory
+* ChatMessageHistory
+
+---
+
+# 📂 Project Structure
 
 ```text
 AI-Knowledge-Assistant/
@@ -61,28 +69,27 @@ AI-Knowledge-Assistant/
 ├── README.md
 │
 ├── data/
-│
 ├── chroma_db/
 │
 ├── assets/
 │   ├── screenshot1.png
-│   ├── screenshot2.png
+│   └── screenshot2.png
 │
 └── utils/
 ```
 
 ---
 
-## ⚙️ Installation
+# ⚙️ Installation
 
-### 1. Clone Repository
+## 1. Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/AI-Knowledge-Assistant.git
+git clone https://github.com/maherdhami/AI-Knowledge-Assistant.git
 cd AI-Knowledge-Assistant
 ```
 
-### 2. Create Virtual Environment
+## 2. Create Virtual Environment
 
 ```bash
 python -m venv venv
@@ -94,33 +101,33 @@ python -m venv venv
 venv\Scripts\activate
 ```
 
-### Linux / Mac
+### Linux / macOS
 
 ```bash
 source venv/bin/activate
 ```
 
-### 3. Install Dependencies
+## 3. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Install Ollama
+## 4. Install Ollama
 
-Download Ollama:
+Download and install Ollama:
 
 https://ollama.com
 
-Pull Llama 3 model:
+Pull the Llama 3 model:
 
 ```bash
 ollama pull llama3:8b
 ```
 
-### 5. Configure Environment Variables
+## 5. Configure Environment Variables
 
-Create a `.env` file:
+Create a `.env` file in the project root:
 
 ```env
 LANGCHAIN_API_KEY=your_langsmith_key
@@ -131,13 +138,13 @@ HF_TOKEN=your_huggingface_token
 
 ---
 
-## ▶️ Run Application
+# ▶️ Running the Application
 
 ```bash
 streamlit run app.py
 ```
 
-Application will start at:
+Application will be available at:
 
 ```text
 http://localhost:8501
@@ -145,62 +152,61 @@ http://localhost:8501
 
 ---
 
-## 🧠 How It Works
+# 🧠 How It Works
 
-### Step 1: Upload Knowledge Sources
+## Step 1: Knowledge Ingestion
 
-Users can upload:
+Users can provide:
 
-- PDF Documents
-- Website URLs
+* PDF Documents
+* Website URLs
 
-### Step 2: Document Processing
+## Step 2: Document Processing
 
-Documents are:
+The system:
 
-- Loaded
-- Split into chunks
-- Embedded using HuggingFace Embeddings
+1. Loads documents
+2. Splits them into chunks
+3. Generates embeddings using HuggingFace
 
-### Step 3: Vector Storage
+## Step 3: Vector Storage
 
-Embeddings are stored in:
+Embeddings are stored inside:
 
 ```text
 ChromaDB
 ```
 
-### Step 4: Retrieval
+## Step 4: Retrieval & Generation
 
 When a user asks a question:
 
 ```text
-Question
-    ↓
+User Query
+      │
+      ▼
 Retriever
-    ↓
-Relevant Chunks
-    ↓
-Prompt
-    ↓
-LLM
-    ↓
-Final Answer
+      │
+      ▼
+Relevant Context
+      │
+      ▼
+Prompt Construction
+      │
+      ▼
+Llama 3
+      │
+      ▼
+AI Response
 ```
 
-### Step 5: Memory
+## Step 5: Conversational Memory
 
-Conversation history is stored using:
-
-```python
-RunnableWithMessageHistory
-```
-
-allowing context-aware conversations.
+Chat history is maintained using LangChain memory components, enabling context-aware multi-turn conversations.
 
 ---
 
-## 🔍 RAG Architecture
+# 🔍 RAG Architecture
 
 ```text
 PDFs / Websites
@@ -212,7 +218,7 @@ Document Loaders
 Text Splitter
         │
         ▼
-Embeddings
+HuggingFace Embeddings
         │
         ▼
 ChromaDB
@@ -227,24 +233,20 @@ Prompt Template
 Llama 3 (Ollama)
         │
         ▼
-Answer
+Final Response
 ```
 
 ---
 
-## 📸 Screenshots
+# 📸 Application Screenshots
 
-### Home Screen
-
-Add screenshot here:
+## Home Screen
 
 ```text
 assets/screenshot1.png
 ```
 
-### Chat Interface
-
-Add screenshot here:
+## Chat Interface
 
 ```text
 assets/screenshot2.png
@@ -252,7 +254,7 @@ assets/screenshot2.png
 
 ---
 
-## 📦 Requirements
+# 📦 Requirements
 
 ```txt
 streamlit
@@ -272,64 +274,60 @@ python-dotenv
 
 ---
 
-## 🎯 Skills Demonstrated
+# 🎯 Skills Demonstrated
 
-This project demonstrates:
-
-- Generative AI
-- Retrieval-Augmented Generation (RAG)
-- LangChain
-- LLM Integration
-- Prompt Engineering
-- Semantic Search
-- Embeddings
-- Vector Databases
-- Conversational Memory
-- Streamlit Development
-- Local AI Deployment
-- Document Question Answering
-
----
-
-## 🔮 Future Improvements
-
-- Streaming responses
-- Multiple LLM support
-- Chat export
-- Persistent Chroma database
-- LangGraph memory
-- Authentication system
-- Multi-user support
-- Source citations
-- Hybrid search
-- Image and DOCX support
-- Cloud deployment
+* Retrieval-Augmented Generation (RAG)
+* Generative AI Applications
+* LangChain Framework
+* LLM Integration
+* Prompt Engineering
+* Semantic Search
+* Vector Databases
+* Embedding Models
+* Conversational AI
+* Memory Management
+* Streamlit Development
+* Local AI Deployment
+* Document Question Answering Systems
 
 ---
 
-## 👨‍💻 Author
+# 🔮 Future Enhancements
+
+* Real-time streaming responses
+* Multiple LLM support
+* Chat export functionality
+* Persistent vector storage
+* LangGraph-based memory
+* User authentication
+* Multi-user architecture
+* Source citations
+* Hybrid search (Keyword + Vector)
+* DOCX and image support
+* Cloud deployment options
+
+---
+
+# 👨‍💻 Author
 
 **Maher Dhami**
 
-- GitHub: https://github.com/maherdhami
-- LinkedIn: https://www.linkedin.com/in/maher-dhami-a15197225/
+GitHub: https://github.com/maherdhami
+
+LinkedIn: https://www.linkedin.com/in/maher-dhami-a15197225/
 
 ---
 
-## ⭐ Support
+# ⭐ Support
 
-If you found this project useful:
+If you found this project valuable:
 
-- Star the repository ⭐
-- Fork the repository 🍴
-- Share it with others 🚀
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License.
+* ⭐ Star the repository
+* 🍴 Fork the repository
+* 🚀 Share it with others
 
 ---
 
-```
+# 📜 License
+
+This project is licensed under the **MIT License**.
