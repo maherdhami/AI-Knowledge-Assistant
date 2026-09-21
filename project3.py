@@ -64,7 +64,6 @@ def get_session_history(session_id:str)->BaseChatMessageHistory:
 
 from langchain_core.messages import trim_messages
 from langchain_groq import ChatGroq
-from langchain_ollama import ChatOllama
 
 if "messages" not in st.session_state:
     st.session_state.messages=[]
@@ -104,34 +103,23 @@ st.title("🤖 AI Assistant")
 
 with st.sidebar:
     st.header("⚙️ Model Configuration")
-    model_provider = st.selectbox(
-        "LLM Provider",
-        ["Groq (Cloud - Recommended)", "Ollama (Local only)"],
-        index=0,
-        help="Use Groq for Streamlit Cloud deployment. Ollama only works locally on your own PC."
+    user_groq_key = st.text_input(
+        "Groq API Key",
+        value=default_groq_key,
+        type="password",
+        help="Get your free key at https://console.groq.com"
     )
-
-    if model_provider.startswith("Groq"):
-        user_groq_key = st.text_input(
-            "Groq API Key",
-            value=default_groq_key,
-            type="password",
-            help="Get your free key at https://console.groq.com"
-        )
-        available_models = get_groq_models(user_groq_key)
-        selected_model_name = st.selectbox(
-            "Model",
-            available_models,
-            index=0
-        )
-        if user_groq_key:
-            model = ChatGroq(model=selected_model_name, api_key=user_groq_key)
-        else:
-            model = None
-            st.warning("⚠️ Please provide a Groq API Key.")
+    available_models = get_groq_models(user_groq_key)
+    selected_model_name = st.selectbox(
+        "Model",
+        available_models,
+        index=0
+    )
+    if user_groq_key:
+        model = ChatGroq(model=selected_model_name, api_key=user_groq_key)
     else:
-        ollama_model_name = st.text_input("Ollama Model", value="llama3:8b")
-        model = ChatOllama(model=ollama_model_name)
+        model = None
+        st.warning("⚠️ Please provide a Groq API Key.")
 
     st.divider()
     st.header("📚 Knowledge Base")
@@ -251,9 +239,4 @@ if user_prompt:
                         }
                     )
                 except Exception as e:
-                    err_msg = str(e)
-                    if "ConnectError" in type(e).__name__ or "ConnectError" in err_msg or "11434" in err_msg:
-                        st.error("❌ **Connection Error**: Could not connect to local Ollama server (http://localhost:11434).")
-                        st.info("💡 **If you are running on Streamlit Cloud**, Ollama cannot run in the cloud. Please switch the **LLM Provider** in the sidebar to **Groq (Cloud - Recommended)**.")
-                    else:
-                        st.error(f"Error generating response: {e}")
+                    st.error(f"Error generating response: {e}")
