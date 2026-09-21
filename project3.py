@@ -83,6 +83,23 @@ if not default_groq_key:
     except Exception:
         default_groq_key = ""
 
+@st.cache_data(ttl=3600)
+def get_groq_models(api_key: str):
+    fallback_models = ["openai/gpt-oss-20b", "openai/gpt-oss-120b", "qwen/qwen3.8-27b", "groq/compound"]
+    if not api_key:
+        return fallback_models
+    try:
+        from groq import Groq
+        client = Groq(api_key=api_key)
+        all_models = [m.id for m in client.models.list().data]
+        chat_models = [
+            m for m in all_models
+            if not any(x in m for x in ["whisper", "guard", "safeguard", "orpheus", "allam"])
+        ]
+        return chat_models if chat_models else fallback_models
+    except Exception:
+        return fallback_models
+
 st.title("🤖 AI Assistant")
 
 with st.sidebar:
@@ -101,9 +118,10 @@ with st.sidebar:
             type="password",
             help="Get your free key at https://console.groq.com"
         )
+        available_models = get_groq_models(user_groq_key)
         selected_model_name = st.selectbox(
             "Model",
-            ["llama-3.3-70b-versatile", "llama-3.1-8b-instant", "mixtral-8x7b-32768"],
+            available_models,
             index=0
         )
         if user_groq_key:
