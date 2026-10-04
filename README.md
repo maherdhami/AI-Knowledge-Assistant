@@ -1,3 +1,15 @@
+git clone https://github.com/maherdhami/AI-Knowledge-Assistant.git
+
+cd AI-Knowledge-Assistant
+
+pip install -r requirements.txt
+
+ollama pull gemma3:latest
+
+ollama serve
+
+streamlit run project3.py
+
 # 🤖 AI Knowledge Assistant
 
 An intelligent Retrieval-Augmented Generation (RAG) application built using **LangChain**, **Ollama**, **ChromaDB**, **HuggingFace Embeddings**, and **Streamlit**. The assistant allows users to upload PDFs, ingest website content, and chat with their own knowledge base through a conversational AI interface.
