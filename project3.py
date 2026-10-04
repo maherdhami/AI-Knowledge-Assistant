@@ -166,11 +166,11 @@ with st.sidebar:
 
     # Models installed locally using Ollama
     available_models = [
-        "gemma3:latest",
-        "llama3.2",
-        "qwen2.5:3b",
-        "phi3"
-    ]
+    "gemma3:latest",
+    "llama3:8b",
+    "gemma:2b",
+    "glm-4.7-flash:latest"
+]
 
     selected_model = st.selectbox(
         "Select Local Model",
