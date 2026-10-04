@@ -1,151 +1,167 @@
-# 🤖 AI Knowledge Assistant (RAG)
+# 🤖 AI Knowledge Assistant
 
-An AI-powered Knowledge Assistant built using **LangChain**, **Streamlit**, **ChromaDB**, **HuggingFace Embeddings**, and **Ollama**.
+An AI-powered Knowledge Assistant built using **LangChain**, **Streamlit**, **Ollama**, **ChromaDB**, and **HuggingFace Embeddings**.
 
-The application allows users to:
-
-- Upload PDF documents
-- Extract and process document content
-- Create a local vector database
-- Ask questions about uploaded documents
-- Get context-aware answers using Retrieval-Augmented Generation (RAG)
-- Chat with a local Large Language Model (LLM)
+The application allows users to upload documents, process websites, build a local knowledge base, and chat with AI using Retrieval-Augmented Generation (RAG) — all without requiring any API key.
 
 ---
 
-# 🚀 Features
+## 🚀 Features
 
-✅ PDF Document Upload
-
-✅ Website Content Processing
-
-✅ Retrieval-Augmented Generation (RAG)
-
-✅ ChromaDB Vector Database
-
-✅ HuggingFace Embeddings
-
-✅ Multiple Ollama Models Support
-
-✅ Streamlit User Interface
-
-✅ Fully Local Execution
-
-✅ No API Key Required
+- 📄 Upload PDF Documents
+- 🌐 Process Website URLs
+- 🧠 Retrieval-Augmented Generation (RAG)
+- 🔍 Semantic Search using Vector Embeddings
+- 💾 ChromaDB Vector Database
+- 🤖 Multiple Ollama Model Support
+- 💬 Conversational Chat Interface
+- 📝 Chat Memory
+- 🔒 Runs Completely Locally
+- 🔑 No API Key Required
 
 ---
 
-# 🛠️ Technologies Used
+## 🛠️ Technologies Used
 
 - Python
 - Streamlit
 - LangChain
+- Ollama
 - ChromaDB
 - HuggingFace Embeddings
-- Ollama
 - BeautifulSoup
 - Requests
 
 ---
 
-# 📂 Project Structure
-
-# 🤖 AI Knowledge Assistant
-
-An intelligent Retrieval-Augmented Generation (RAG) application built using **LangChain**, **Ollama**, **ChromaDB**, **HuggingFace Embeddings**, and **Streamlit**. The assistant allows users to upload PDFs, ingest website content, and chat with their own knowledge base through a conversational AI interface.
-
-### 🌐 Live Demo
-
-**AI Knowledge Assistant:**
-https://ai-knowledge-assistant-7.streamlit.app/
-
----
-
-# 🚀 Features
-
-* 💬 ChatGPT-style conversational interface
-* 📄 Upload and chat with PDF documents
-* 🌐 Extract and query website content using URLs
-* 🧠 Retrieval-Augmented Generation (RAG)
-* 🔍 Semantic search powered by vector embeddings
-* 🗂️ ChromaDB vector database integration
-* 🤗 HuggingFace Embeddings
-* 🦙 Local LLM inference using Ollama
-* 📝 Context-aware conversation memory
-* ✂️ Automatic chat history trimming
-* ⚡ Fast and lightweight Streamlit UI
-
----
-
-# 🛠️ Tech Stack
-
-## Frontend
-
-* Streamlit
-
-## AI & LLM
-
-* Ollama
-* Llama 3 (8B)
-
-## Framework
-
-* LangChain
-
-## Embeddings
-
-* sentence-transformers/all-MiniLM-L6-v2
-
-## Vector Database
-
-* ChromaDB
-
-## Document Processing
-
-* PyPDFLoader
-* WebBaseLoader
-
-## Memory Management
-
-* RunnableWithMessageHistory
-* ChatMessageHistory
-
----
-
-# 📂 Project Structure
+## 📂 Project Structure
 
 ```text
 AI-Knowledge-Assistant/
 │
-├── app.py
+├── project3.py
+├── requirements.txt
 ├── README.md
-│
-├── data/
-├── chroma_db/
-│
-├── assets/
-│   ├── screenshot1.png
-│   └── screenshot2.png
-│
-└── utils/
+├── .gitignore
+└── project3.ipynb
 ```
 
 ---
 
-# ⚙️ Installation
+## ⚙️ System Requirements
 
-## 1. Clone Repository
+### Software Required
+
+- Python 3.10 or higher
+- Git
+- Ollama
+
+### Download Links
+
+Python:
+https://www.python.org/downloads/
+
+Git:
+https://git-scm.com/downloads
+
+Ollama:
+https://ollama.com/download
+
+---
+
+## 📥 Clone the Repository
 
 ```bash
 git clone https://github.com/maherdhami/AI-Knowledge-Assistant.git
+
 cd AI-Knowledge-Assistant
 ```
 
-## 2. Create Virtual Environment
+---
+
+## 🐍 Create Virtual Environment
+
+### Windows
 
 ```bash
 python -m venv venv
+
+venv\Scripts\activate
 ```
+
+### Linux / Mac
+
+```bash
+python3 -m venv venv
+
+source venv/bin/activate
+```
+
+---
+
+## 📦 Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 🤖 Install Ollama Model
+
+Pull at least one model before running the application.
+
+Recommended:
+
+```bash
+ollama pull gemma3:latest
+```
+
+Optional Models:
+
+```bash
+ollama pull llama3:8b
+
+ollama pull gemma:2b
+
+ollama pull glm-4.7-flash:latest
+```
+
+Verify installed models:
+
+```bash
+ollama list
+```
+
+Example Output:
+
+```text
+NAME
+gemma3:latest
+llama3:8b
+gemma:2b
+glm-4.7-flash:latest
+```
+
+---
+
+## ▶️ Start Ollama
+
+Open a terminal and run:
+
+```bash
+ollama serve
+```
+
+Keep this terminal running.
+
+---
+
+## ▶️ Run the Application
+
+Open another terminal.
+
+Activate virtual environment:
 
 ### Windows
 
@@ -153,50 +169,23 @@ python -m venv venv
 venv\Scripts\activate
 ```
 
-### Linux / macOS
+### Linux / Mac
 
 ```bash
 source venv/bin/activate
 ```
 
-## 3. Install Dependencies
+Run Streamlit:
 
 ```bash
-pip install -r requirements.txt
-```
-
-## 4. Install Ollama
-
-Download and install Ollama:
-
-https://ollama.com
-
-Pull the Llama 3 model:
-
-```bash
-ollama pull llama3:8b
-```
-
-## 5. Configure Environment Variables
-
-Create a `.env` file in the project root:
-
-```env
-LANGCHAIN_API_KEY=your_langsmith_key
-LANGCHAIN_PROJECT=AI-Knowledge-Assistant
-LANGCHAIN_TRACING_V2=true
-HF_TOKEN=your_huggingface_token
+streamlit run project3.py
 ```
 
 ---
 
-# ▶️ Running the Application
+## 🌐 Open the Application
 
-```bash
-streamlit run app.py
-```
-
-Application will be available at:
+Open your browser and visit:
 
 ```text
 http://localhost:8501
@@ -204,182 +193,159 @@ http://localhost:8501
 
 ---
 
-# 🧠 How It Works
+## 📚 How to Use
 
-## Step 1: Knowledge Ingestion
+### Step 1: Select AI Model
 
-Users can provide:
+Choose any installed Ollama model from the sidebar.
 
-* PDF Documents
-* Website URLs
-
-## Step 2: Document Processing
-
-The system:
-
-1. Loads documents
-2. Splits them into chunks
-3. Generates embeddings using HuggingFace
-
-## Step 3: Vector Storage
-
-Embeddings are stored inside:
+Recommended:
 
 ```text
-ChromaDB
+gemma3:latest
 ```
 
-## Step 4: Retrieval & Generation
+---
 
-When a user asks a question:
+### Step 2: Upload Documents
+
+Upload one or more PDF documents.
+
+---
+
+### Step 3: Process Documents
+
+Click:
 
 ```text
-User Query
-      │
-      ▼
-Retriever
-      │
-      ▼
-Relevant Context
-      │
-      ▼
-Prompt Construction
-      │
-      ▼
-Llama 3
-      │
-      ▼
-AI Response
+Process Documents
 ```
 
-## Step 5: Conversational Memory
+The application will:
 
-Chat history is maintained using LangChain memory components, enabling context-aware multi-turn conversations.
+- Extract document content
+- Split text into chunks
+- Generate embeddings
+- Store vectors in ChromaDB
+- Create a searchable knowledge base
 
 ---
 
-# 🔍 RAG Architecture
+### Step 4: Ask Questions
+
+Example Queries:
 
 ```text
-PDFs / Websites
-        │
-        ▼
-Document Loaders
-        │
-        ▼
-Text Splitter
-        │
-        ▼
-HuggingFace Embeddings
-        │
-        ▼
-ChromaDB
-        │
-        ▼
-Retriever
-        │
-        ▼
-Prompt Template
-        │
-        ▼
-Llama 3 (Ollama)
-        │
-        ▼
-Final Response
+Summarize this document.
 ```
-
----
-
-# 📸 Application Screenshots
-
-## Home Screen
 
 ```text
-assets/screenshot1.png
+What are the key findings?
 ```
-
-## Chat Interface
 
 ```text
-assets/screenshot2.png
+Explain chapter 3.
+```
+
+```text
+List important points.
 ```
 
 ---
 
-# 📦 Requirements
+### Step 5: Website Knowledge Base
 
-```txt
-streamlit
-langchain
-langchain-community
-langchain-core
-langchain-text-splitters
-langchain-huggingface
-langchain-chroma
-langchain-ollama
-chromadb
-sentence-transformers
-pypdf
-beautifulsoup4
-python-dotenv
+Enter a website URL:
+
+```text
+https://en.wikipedia.org/wiki/Artificial_intelligence
+```
+
+Click:
+
+```text
+Process Documents
+```
+
+The website content becomes part of the knowledge base.
+
+---
+
+## 🔒 Privacy
+
+- Runs entirely on local machine
+- No OpenAI API required
+- No Groq API required
+- No Gemini API required
+- User data remains local
+- Uploaded files are not sent to external services
+
+---
+
+## 🎯 Quick Start
+
+```bash
+git clone https://github.com/maherdhami/AI-Knowledge-Assistant.git
+
+cd AI-Knowledge-Assistant
+
+python -m venv venv
+
+venv\Scripts\activate
+
+pip install -r requirements.txt
+
+ollama pull gemma3:latest
+
+ollama serve
+```
+
+Open a second terminal:
+
+```bash
+cd AI-Knowledge-Assistant
+
+venv\Scripts\activate
+
+streamlit run project3.py
+```
+
+Open:
+
+```text
+http://localhost:8501
 ```
 
 ---
 
-# 🎯 Skills Demonstrated
+## 📖 Academic Purpose
 
-* Retrieval-Augmented Generation (RAG)
-* Generative AI Applications
-* LangChain Framework
-* LLM Integration
-* Prompt Engineering
-* Semantic Search
-* Vector Databases
-* Embedding Models
-* Conversational AI
-* Memory Management
-* Streamlit Development
-* Local AI Deployment
-* Document Question Answering Systems
+This project demonstrates:
+
+- Retrieval-Augmented Generation (RAG)
+- Vector Databases
+- Local Large Language Models (LLMs)
+- Semantic Search
+- LangChain Framework
+- Streamlit Application Development
+- Document Question Answering Systems
 
 ---
 
-# 🔮 Future Enhancements
+## 👨‍💻 Author
 
-* Real-time streaming responses
-* Multiple LLM support
-* Chat export functionality
-* Persistent vector storage
-* LangGraph-based memory
-* User authentication
-* Multi-user architecture
-* Source citations
-* Hybrid search (Keyword + Vector)
-* DOCX and image support
-* Cloud deployment options
+### Maher Dhami
+
+GitHub:
+https://github.com/maherdhami
+
+LinkedIn:
+https://www.linkedin.com/in/maher-dhami-a15197225/
 
 ---
 
-# 👨‍💻 Author
+## 📄 License
 
-**Maher Dhami**
+This project is developed for educational and academic learning purposes.
 
-GitHub: https://github.com/maherdhami
-
-LinkedIn: https://www.linkedin.com/in/maher-dhami-a15197225/
-
----
-
-# ⭐ Support
-
-If you found this project valuable:
-
-* ⭐ Star the repository
-* 🍴 Fork the repository
-* 🚀 Share it with others
-
----
-
-# 📜 License
-
-This project is licensed under the **MIT License**.
+Feel free to use, modify, and learn from the code.
