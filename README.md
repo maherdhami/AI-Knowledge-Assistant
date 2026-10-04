@@ -1,14 +1,54 @@
-git clone https://github.com/maherdhami/AI-Knowledge-Assistant.git
+# 🤖 AI Knowledge Assistant (RAG)
 
-cd AI-Knowledge-Assistant
+An AI-powered Knowledge Assistant built using **LangChain**, **Streamlit**, **ChromaDB**, **HuggingFace Embeddings**, and **Ollama**.
 
-pip install -r requirements.txt
+The application allows users to:
 
-ollama pull gemma3:latest
+- Upload PDF documents
+- Extract and process document content
+- Create a local vector database
+- Ask questions about uploaded documents
+- Get context-aware answers using Retrieval-Augmented Generation (RAG)
+- Chat with a local Large Language Model (LLM)
 
-ollama serve
+---
 
-streamlit run project3.py
+# 🚀 Features
+
+✅ PDF Document Upload
+
+✅ Website Content Processing
+
+✅ Retrieval-Augmented Generation (RAG)
+
+✅ ChromaDB Vector Database
+
+✅ HuggingFace Embeddings
+
+✅ Multiple Ollama Models Support
+
+✅ Streamlit User Interface
+
+✅ Fully Local Execution
+
+✅ No API Key Required
+
+---
+
+# 🛠️ Technologies Used
+
+- Python
+- Streamlit
+- LangChain
+- ChromaDB
+- HuggingFace Embeddings
+- Ollama
+- BeautifulSoup
+- Requests
+
+---
+
+# 📂 Project Structure
 
 # 🤖 AI Knowledge Assistant
 
